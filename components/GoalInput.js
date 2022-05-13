@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {View, TextInput, Button, StyleSheet} from 'react-native'
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 const GoalInput = props => {
@@ -17,7 +18,7 @@ const GoalInput = props => {
                 style={styles.input}
                 onChangeText={goalInputHandler}
                 value={enteredGoal} />
-            <Button title="ADD" onPress={props.onAddGoal.bind(this, enteredGoal)} />
+            <Button color={'red'} title="Add Goal" onPress={props.onAddGoal.bind(this, enteredGoal)} />
         </View>
     );
 };
