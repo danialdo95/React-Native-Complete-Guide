@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 
 const press = () => {
@@ -8,13 +8,12 @@ const press = () => {
 
 
 const GoalItem = props => {
-    return (
-
-        <TouchableOpacity onPress={props.onDelete.bind(this, props.id)}>
+    return ( 
             <View style={styles.goalItem}>
-                <Text style={styles.goalText}>{props.title}</Text>
+                   <Pressable style={({pressed}) => pressed && styles.pressedItem} android_ripple={{color: '#dddddd'}} onPress={props.onDelete.bind(this, props.id)}>
+                    <Text style={styles.goalText}>{props.title}</Text>
+                </Pressable>
             </View>
-        </TouchableOpacity>
     )
 };
 
@@ -33,7 +32,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#5e0acc'
     },
     goalText: {
-        color: 'white'
+        color: 'white',
+        padding: 8
+    },
+    pressedItem: {
+        opacity: 0.5,
     }
 });
 
